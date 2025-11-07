@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginPostRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\TaskRegisterPostRequest;
 
 class AuthController extends Controller
 {
@@ -57,5 +58,15 @@ class AuthController extends Controller
         $request->session()->regenerateToken();  // CSRFトークンの再生成
         $request->session()->regenerate();  // セッションIDの再生成
         return redirect(route('front.index'));
-    }     
+    }    
+    
+    /**
+     * タスクの新規登録
+     */
+    public function register(TaskRegisterPostRequest $request)
+    {
+        // validate済みのデータの取得
+        $datum = $request->validated();
+        var_dump($datum); exit;
+    }
 }
