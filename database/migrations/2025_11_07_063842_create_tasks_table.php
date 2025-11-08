@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tasks', function (Blueprint $table) {
-            $table->id();
+            $table->unisignedInteger('id');
             $table->string('name', 128)->comment('タスク名');
             $table->date('period')->comment('タスクの期限');
             $table->text('detail')->comment('タスクの詳細');
@@ -22,6 +22,8 @@ return new class extends Migration
             //$table->timestamps();
             $table->dateTime('created_at')->useCurrent();
             $table->dateTime('updated_at')->useCurrent()->useCurrentOnUpdate();
+            //
+            $table->primary('id');
         });
     }
 
