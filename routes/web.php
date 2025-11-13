@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\CompletedTaskController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
@@ -49,6 +50,13 @@ Route::prefix('/admin')->group(function () {
         Route::get('/user/list', [AdminUserController::class, 'list'])->name('admin.user.list');
     });
 });
+
+//会員登録
+// ページ表示
+Route::get('/user/register', [UserController::class, 'index'])->name('register.index');
+// 登録処理
+Route::post('/user/register', [UserController::class, 'register'])->name('register');
+
 
 // テスト用
 Route::get('/welcome', [WelcomeController::class, 'index']);

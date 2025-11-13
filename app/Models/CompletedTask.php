@@ -12,5 +12,5 @@ class CompletedTask extends Model
     /**
      * 複数代入不可能な属性
      */
-    protected $guarded = [];    
+    protected $guarded = [];   
 }

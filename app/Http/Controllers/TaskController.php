@@ -164,9 +164,9 @@ class TaskController extends Controller
                 throw new \Exception('');
             }
 
-            //var_dump($task->toArray()); exit;
             // tasks側を削除する
             $task->delete();
+            //var_dump($task->toArray()); exit;
 
             // completed_tasks側にinsertする
             $dask_datum = $task->toArray();
@@ -184,7 +184,7 @@ class TaskController extends Controller
             // 完了メッセージ出力
             $request->session()->flash('front.task_completed_success', true);
         } catch(\Throwable $e) {
-            var_dump($e->getMessage()); exit;
+            // var_dump($e->getMessage()); exit;
             // トランザクション異常終了
             DB::rollBack();
             // 完了失敗メッセージ出力

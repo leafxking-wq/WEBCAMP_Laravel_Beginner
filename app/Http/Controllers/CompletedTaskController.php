@@ -8,6 +8,11 @@ use App\Models\CompletedTask as CompletedTaskModel;
 
 class CompletedTaskController extends Controller
 {
+    //登録フォームを表示する
+    public function index()
+    {
+        return view('task.completed_list');
+    }
     /**
      * 完了タスク一覧ページ を表示する
      * 
