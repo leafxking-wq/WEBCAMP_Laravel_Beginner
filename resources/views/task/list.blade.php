@@ -39,12 +39,13 @@
 
         <h1>タスクの一覧</h1>
         <a href="/task/csv/download">CSVダウンロード</a><br>
-        <a href="/compeleted_tasks/list">完了タスクの一覧</a><br>
+        <a href="/completed_tasks/list">完了タスクの一覧</a><br>
         <table border="1">
         <tr>
             <th>タスク名
             <th>期限
             <th>重要度
+            <th>タスク終了日
         @foreach ($list as $task)
         <tr>
             <td>{{ $task->name }}
